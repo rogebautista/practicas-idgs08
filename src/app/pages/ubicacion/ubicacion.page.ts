@@ -12,20 +12,7 @@ export class UbicacionPage {
   constructor() { }
 
 
-  /*async createMap() {
-    this.newMap = await GoogleMap.create({
-      id: 'my-cool-map',
-      element: this.mapRef.nativeElement,
-      apiKey: 'AIzaSyCsDaw9gnv5b_pK1oI7Z0RYfAT2pcCYmNM',
-      config: {
-        center: {
-          lat: 33.6,
-          lng: -117.9,
-        },
-        zoom: 8,
-      },
-    });
-  }*/
+
 
 
 }
