@@ -11,7 +11,7 @@
 <ion-content class="ion-padding">
   <h2>Now Playing</h2>
   <p>Stream URL: {{ streamUrl }}</p>
-
+  <ion-button expand="block" (click)="preloadAudio()">Preload</ion-button>
   <ion-button expand="block" (click)="playRadio()">Play</ion-button>
   <ion-button expand="block" color="danger" (click)="stopRadio()">Stop</ion-button>
 </ion-content>
