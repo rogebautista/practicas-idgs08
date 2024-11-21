@@ -3,6 +3,8 @@ import { PhotoService } from '../../services/photo.service';
 
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import {ModalController} from "@ionic/angular";
+import { Filesystem, Directory } from '@capacitor/filesystem';
+import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-modal-camara',
@@ -86,5 +88,27 @@ export class ModalCamaraComponent  implements AfterViewInit {
   }
   dismissModal() {
     this.modalController.dismiss();
+  }
+  async saveToGallery() {
+    if (this.imageUrl) {
+      const fileName = `photo_${new Date().getTime()}.png`;
+      await Filesystem.writeFile({
+        path: fileName,
+        data: this.imageUrl,
+        directory: Directory.Documents, // Adjust to Gallery if supported on your platform
+      });
+      alert('Image saved to gallery.');
+    }
+  }
+
+  async shareImage() {
+    if (this.imageUrl) {
+      await Share.share({
+        title: 'Check out this photo!',
+        text: 'I just captured this image.',
+        url: this.imageUrl,
+        dialogTitle: 'Share Image',
+      });
+    }
   }
 }
