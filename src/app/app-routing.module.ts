@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'sensores',
     loadChildren: () => import('./pages/sensores/sensores.module').then( m => m.SensoresPageModule)
   },
+  {
+    path: 'radio-streaming',
+    loadChildren: () => import('./pages/radio-streaming/radio-streaming.module').then( m => m.RadioStreamingPageModule)
+  },
 ];
 
 @NgModule({
