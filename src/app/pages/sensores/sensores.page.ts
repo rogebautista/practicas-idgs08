@@ -13,7 +13,7 @@ export class SensoresPage implements OnInit {
 
   ngOnInit() {
   }
-  async openCameraModal() {
+  async openSensorsModal() {
     const modal = await this.modalController.create({
       component: ModalSensorsComponent,
     });
