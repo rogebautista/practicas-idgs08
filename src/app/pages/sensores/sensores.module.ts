@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SensoresPageRoutingModule } from './sensores-routing.module';
 
 import { SensoresPage } from './sensores.page';
+import { ModalSensorsComponent } from "../../components/modal-sensors/modal-sensors.component";
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { SensoresPage } from './sensores.page';
     IonicModule,
     SensoresPageRoutingModule
   ],
-  declarations: [SensoresPage]
+  declarations: [SensoresPage, ModalSensorsComponent]
 })
 export class SensoresPageModule {}
