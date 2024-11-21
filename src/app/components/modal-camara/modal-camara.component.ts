@@ -103,12 +103,28 @@ export class ModalCamaraComponent  implements AfterViewInit {
 
   async shareImage() {
     if (this.imageUrl) {
-      await Share.share({
-        title: 'Check out this photo!',
-        text: 'I just captured this image.',
-        url: this.imageUrl,
-        dialogTitle: 'Share Image',
-      });
+      try {
+        // Convert base64 image to a file and get its URI
+        const fileName = `photo_${new Date().getTime()}.png`;
+        const savedFile = await Filesystem.writeFile({
+          path: fileName,
+          data: this.imageUrl.split(',')[1], // Remove the data URL prefix
+          directory: Directory.Cache,
+        });
+
+        // Share the file using its URI
+        await Share.share({
+          title: 'Check out this photo!',
+          text: 'I just captured this image.',
+          url: savedFile.uri, // Use the file URI for sharing
+          dialogTitle: 'Share Image',
+        });
+      } catch (error) {
+        console.error('Error sharing image:', error);
+        alert('Unable to share the image.');
+      }
+    } else {
+      alert('No image to share.');
     }
   }
 }
