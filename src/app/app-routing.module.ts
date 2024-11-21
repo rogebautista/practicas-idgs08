@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'ubicacion',
     loadChildren: () => import('./pages/ubicacion/ubicacion.module').then( m => m.UbicacionPageModule)
   },
+  {
+    path: 'sensores',
+    loadChildren: () => import('./pages/sensores/sensores.module').then( m => m.SensoresPageModule)
+  },
 ];
 
 @NgModule({
